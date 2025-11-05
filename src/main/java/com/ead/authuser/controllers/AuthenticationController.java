@@ -24,7 +24,6 @@ public class AuthenticationController {
     @Autowired
     UserService userService;
 
-
     @PostMapping("/signup")
     public ResponseEntity<Object> registerUser(
             @RequestBody
@@ -39,7 +38,6 @@ public class AuthenticationController {
         if (userService.existsByEmail(userDto.getEmail())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Email is Already Taken");
         }
-
 
         UserModel userModel = new UserModel();
         BeanUtils.copyProperties(userDto, userModel);
