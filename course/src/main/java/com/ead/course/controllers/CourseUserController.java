@@ -47,12 +47,12 @@ public class CourseUserController {
                                                                @RequestBody @Valid SubscriptionDto subscriptionDto) {
         Optional<CourseModel> courseModelOptional = courseService.findById(courseId);
         if (!courseModelOptional.isPresent()){
-            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course Not Found");
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Course Not Found");
         }
 
         //verificar se o aluno já está matriculado
         if (courseUserService.existsByCourseAndUserId(courseModelOptional.get(), subscriptionDto.getUserId())){
-            ResponseEntity.status(HttpStatus.CONFLICT).body("Error: subscription already exists");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: subscription already exists");
         }
 
         //verificação do user
