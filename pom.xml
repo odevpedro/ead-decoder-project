@@ -7,7 +7,8 @@
   <version>1.0.0</version>
 
   <modules>
-    <module>authuser</module>
-    <module>course</module>
+      <module>authuser</module>
+      <module>course</module>
+      <module>service-registry</module>
   </modules>
 </project>
