@@ -4,13 +4,13 @@ import com.ead.authuser.dtos.InstructorDto;
 import com.ead.authuser.enums.UserType;
 import com.ead.authuser.models.UserModel;
 import com.ead.authuser.service.UserService;
+import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Optional;

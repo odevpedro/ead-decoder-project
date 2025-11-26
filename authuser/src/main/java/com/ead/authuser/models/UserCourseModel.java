@@ -1,11 +1,11 @@
 package com.ead.authuser.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -22,15 +22,10 @@ public class UserCourseModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-
     @Column(nullable = false)
     private UUID courseId;
 
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private UserModel user;
-
-
-
 
 }

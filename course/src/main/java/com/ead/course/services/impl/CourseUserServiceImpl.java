@@ -5,10 +5,10 @@ import com.ead.course.models.CourseModel;
 import com.ead.course.models.CourseUserModel;
 import com.ead.course.repositories.CourseUserRepository;
 import com.ead.course.services.CourseUserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.UUID;
 
 @Service
@@ -30,7 +30,7 @@ public class CourseUserServiceImpl implements CourseUserService {
         return courseUserRepository.save(courseUserModel);
     }
 
-    @Transactional //garantes atomiciadade na transação
+    @Transactional //garante atomiciadade na transação
     @Override
     public CourseUserModel saveAndSendSubscriptionUserInCourse(CourseUserModel courseUserModel) {
         courseUserModel = courseUserRepository.save(courseUserModel);

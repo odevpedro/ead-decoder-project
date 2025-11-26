@@ -3,12 +3,10 @@ package com.ead.authuser.dtos;
 import com.ead.authuser.validation.UserNameConstraint;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import org.apache.catalina.User;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Data
@@ -31,7 +29,7 @@ public class UserDto {
     private String username;
 
     @NotBlank(groups = UserView.RegistrationPost.class)
-    @Email (groups = UserView.RegistrationPost.class)
+    @Email(groups = UserView.RegistrationPost.class)
     @JsonView(UserView.RegistrationPost.class)
     private String email;
 

@@ -5,9 +5,6 @@ import com.ead.course.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Data
