@@ -48,7 +48,6 @@ public class CourseClient {
         }
         log.info("Ending request /courses userId {}", userId);
         return new PageImpl<>(searchResult);
-
         }
 
 }

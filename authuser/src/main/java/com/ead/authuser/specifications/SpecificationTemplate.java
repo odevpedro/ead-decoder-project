@@ -1,6 +1,5 @@
 package com.ead.authuser.specifications;
 
-import com.ead.authuser.models.UserCourseModel;
 import com.ead.authuser.models.UserModel;
 import jakarta.persistence.criteria.Join;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
@@ -20,23 +19,6 @@ public class SpecificationTemplate {
             @Spec(path = "email", spec = Like.class)})
 
     public interface UserSpec extends Specification<UserModel> {}
-
-    public static Specification<UserModel> userCourseId(final UUID courseId) {
-        return (root, query, cb) -> {
-            query.distinct(true);
-            Join<UserModel, UserCourseModel> userProd = root.join("userCourses");
-            return cb.equal(userProd.get("courseId"), courseId);
-        };
-    }
-
-/*
-SQL equivalente:
-
-SELECT DISTINCT u.*
-FROM tb_users u
-JOIN tb_users_courses uc ON u.id = uc.user_id
-WHERE uc.course_id = :courseId;
-*/
 
 
 }
